@@ -7,6 +7,8 @@ import AddressPicker from "@/components/AddressPicker";
 import AdminPanelPro, { ConfigBundle } from "@/components/AdminPanelPro";
 type Role = null | "cliente" | "wicarrista" | "operacoes" | "admin";
 
+
+
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const BRL = (n:number)=> (n||0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
 const toRad = (x:number)=> (x*Math.PI)/180;
@@ -156,7 +158,7 @@ export default function Page(){
     );
   }
 
-  if(!bundle && userType!=='admin'){
+ if (!bundle && (userType as any) !== 'admin') {
     return (
       <div className="space-y-4">
         <div className="flex flex-wrap gap-3">
