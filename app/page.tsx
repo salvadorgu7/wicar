@@ -33,7 +33,9 @@ export default function Page(){
     }
   },[]);
 
-  const [userType, setUserType] = useState<null|"cliente"|"wicarrista"|"operacoes"|"admin">(null);
+  const [userType, setUserType] = useState<null | "cliente" | "wicarrista" | "operacoes" | "admin">(null);
+
+
   const [wicarristas] = useState<any[]>(Array.from({length:8}).map((_,i)=>({
     id:'w'+(i+1), name:['Rafael','Camila','Bruno','Isis','Victor','Brenda','Leandro','Paula'][i%8],
     rating:+(4.6+Math.random()*0.4).toFixed(2), jobs:Math.floor(100+Math.random()*700),
