@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import AddressPicker from "@/components/AddressPicker";
 import AdminPanelPro, { ConfigBundle } from "@/components/AdminPanelPro";
+type Role = null | "cliente" | "wicarrista" | "operacoes" | "admin";
 
 const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const BRL = (n:number)=> (n||0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
@@ -33,7 +34,8 @@ export default function Page(){
     }
   },[]);
 
-  const [userType, setUserType] = useState<null | "cliente" | "wicarrista" | "operacoes" | "admin">(null);
+  const [userType, setUserType] = useState<Role>(null);
+
 
 
   const [wicarristas] = useState<any[]>(Array.from({length:8}).map((_,i)=>({
